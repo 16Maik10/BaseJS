@@ -36,17 +36,23 @@ console.log(declinationOfNumber(5, "стул", "стула", "стульев"));
        */
       function declinationOfNumber(count, word1, word2, word3) {
         const determinativeSign = count % 10;
-        switch (determinativeSign) {
-          case 1:
-            return word1;
-          case 2:
-          case 3:
-          case 4:
-            return word2;
-          default:
-            return word3;
+        const exceptionCaseValue = count % 100;
+        if (exceptionCaseValue >= 5 && exceptionCaseValue <= 20) {
+          return word3;
+        }
+        if (determinativeSign === 1) {
+          return word1;
+        } else {
+          return word2;
         }
       }
+
+      console.log(declinationOfNumber(1, "яблоко", "яблока", "яблок")); // "яблоко"
+      console.log(declinationOfNumber(2, "мяч", "мяча", "мячей")); // "мяча"
+      console.log(declinationOfNumber(5, "стул", "стула", "стульев")); // "стульев"
+      console.log(declinationOfNumber("11", "яблоко", "яблока", "яблок"));
+      console.log(declinationOfNumber("111", "яблоко", "яблока", "яблок"));
+      console.log(declinationOfNumber("14", "яблоко", "яблока", "яблок"));
     </script>
   </body>
 </html>
