@@ -37,6 +37,7 @@ console.log(declinationOfNumber(5, "стул", "стула", "стульев"));
       function declinationOfNumber(count, word1, word2, word3) {
         const determinativeSign = count % 10;
         const exceptionCaseValue = count % 100;
+
         if (exceptionCaseValue >= 5 && exceptionCaseValue <= 20) {
           return word3;
         }
