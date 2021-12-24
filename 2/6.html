@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Homework</title>
+  </head>
+  <body>
+    <!--
+Необязательное задание.
+
+Необходимо реализовать функцию, которая будет принимать первым аргументом
+целое положительное число, в следующих трех аргументах функция принимает слова
+в разных склонениях.
+Функция должна возвращать одно из трех переданных в параметры слов подходящее
+под число, которое передано первым аргументом.
+
+Пример:
+console.log(declinationOfNumber(1, "яблоко", "яблока", "яблок")); // "яблоко"
+console.log(declinationOfNumber(2, "мяч", "мяча", "мячей")); // "мяча"
+console.log(declinationOfNumber(5, "стул", "стула", "стульев")); // "стульев"
+
+Функция должна работать с любым словом и любым целым положительным числом.
+Все аргументы, которые будут передаваться функции будут верны.
+-->
+    <script>
+      "use strict";
+
+      /**
+       * Функция получает на вход число и 3 варианта слов в разных склонениях и выбирает правильный
+       * вариант склонения для переданного числа.
+       * @param {number} count Число, для которого будет определяться склонение слова
+       * @param {string} word1 Первый вариант склонения
+       * @param {string} word2 Второй вариант склонения
+       * @param {string} word3 Третий вариант склонения
+       * @returns {number} В зависимости от переданного числа возврщает правильный вариант склонения из переданных слов
+       */
+      function declinationOfNumber(count, word1, word2, word3) {
+        const determinativeSign = count % 10;
+        const exceptionCaseValue = count % 100;
+
+        if (exceptionCaseValue >= 5 && exceptionCaseValue <= 20) {
+          return word3;
+        }
+        if (determinativeSign === 1) {
+          return word1;
+        } else {
+          return word2;
+        }
+      }
+
+      console.log(declinationOfNumber(1, "яблоко", "яблока", "яблок")); // "яблоко"
+      console.log(declinationOfNumber(2, "мяч", "мяча", "мячей")); // "мяча"
+      console.log(declinationOfNumber(5, "стул", "стула", "стульев")); // "стульев"
+      console.log(declinationOfNumber("11", "яблоко", "яблока", "яблок"));
+      console.log(declinationOfNumber("111", "яблоко", "яблока", "яблок"));
+      console.log(declinationOfNumber("14", "яблоко", "яблока", "яблок"));
+    </script>
+  </body>
+</html>
