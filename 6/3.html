@@ -51,9 +51,7 @@
         if (star === null || star.localName !== "i") {
           return;
         }
-        star.classList.contains("golden")
-          ? star.classList.remove("golden")
-          : star.classList.add("golden");
+        star.classList.toggle("golden");
         setGoldenStar(star.previousElementSibling);
       };
 
